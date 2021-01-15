@@ -1,0 +1,23 @@
+version: "3"
+services:
+    DB:
+        container_name: "db01"
+        domainname: go.com.br
+        hostname: db01
+        image: "postgres"
+        ports:
+                - "5432:5432/tcp"
+        volumes:
+                - "./data/:/var/lib/postgresql/data"
+                - "/etc/localtime:/etc/localtime:ro"
+                - "./log/:/var/log/postgresql"
+        environment:
+                #- "POSTGRES_PASSWORD=\"SENHA QUALQUER\""
+                - "POSTGRES_PASSWORD=P@ssw0rd"
+        networks:
+                default:
+                        ipv4_address: 10.85.0.60
+networks:
+    default:
+        external:
+            name: net_85

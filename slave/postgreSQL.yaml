@@ -1,0 +1,22 @@
+version: "3"
+services:
+    DB:
+        container_name: "dbslave"
+        domainname: go.com.br
+        hostname: dbslave
+        image: "postgres"
+        ports:
+                - "5433:5433/tcp"
+        volumes:
+                - "./data/:/var/lib/postgresql/data"
+                - "/etc/localtime:/etc/localtime:ro"
+                - "./log/:/var/log/postgresql"
+        environment:
+                #- "POSTGRES_PASSWORD=\"SENHA QUALQUER\""
+        networks:
+                default:
+                        ipv4_address: 10.85.0.80
+networks:
+    default:
+        external:
+            name: net_85

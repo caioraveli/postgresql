@@ -1,0 +1,15 @@
+# Ignore
+
+master/
+slave/
+data/
+
+
+# Allow
+
+!master/
+master/*
+!master/postgreSQL.yaml
+!slave/
+slave/*
+!slave/*.yaml
